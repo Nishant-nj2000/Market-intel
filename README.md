@@ -1,3 +1,26 @@
+market-intel/
+├─ README.md
+├─ requirements.txt
+├─ .gitignore
+├─ config.yaml
+├─ scripts/
+│  ├─ run_scraper.sh
+│  └─ run_analysis.sh
+├─ src/
+│  ├─ __init__.py
+│  ├─ main.py
+│  ├─ scraper.py
+│  ├─ processor.py
+│  ├─ storage.py
+│  ├─ analysis.py
+│  ├─ utils.py
+│  └─ logger.py
+├─ examples/
+│  ├─ sample_output.parquet
+│  └─ small_sample_signals.parquet
+└─ docs/
+   └─ technical_notes.md
+
 # Market-Intel (Twitter/X) — Real-time market intelligence for Indian stocks
 
 This repository is a production-minded Python system to collect and analyze public tweets related to Indian stock market hashtags (#nifty50, #sensex, #intraday, #banknifty) without using any paid API.
@@ -20,4 +43,5 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 3. Configure config.yaml (output paths, keywords, max items).
+
 4. Run:

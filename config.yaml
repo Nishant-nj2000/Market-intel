@@ -1,0 +1,30 @@
+# config.yaml - central knobs
+keywords:
+  - "#nifty50"
+  - "#sensex"
+  - "#intraday"
+  - "#banknifty"
+
+scrape:
+  headless: true
+  max_tweets: 2500            # stop when reached
+  min_recent_hours: 24        # only collect tweets with timestamp within last 24 hours
+  window_seconds: 2.0         # base wait between fetches (randomized)
+  max_scrolls: 200
+  batch_sleep_sec: 1.0        # between scrolls (randomized)
+  result_size: 2000
+
+storage:
+  output_dir: "outputs"
+  parquet_file: "outputs/tweets.parquet"
+  errors_csv: "outputs/errors.csv"
+
+processing:
+  dedup_key: "tweet_id"
+  sample_limit: 50000        # for in-memory sampling for large datasets
+
+analysis:
+  tfidf_max_features: 20000
+  tfidf_ngram_range: [1,2]
+  embedding_model: "all-MiniLM-L6-v2" # sentence-transformers (optional)
+  top_k_terms: 50
